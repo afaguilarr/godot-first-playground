@@ -1,0 +1,6 @@
+res://Main Menu.tscn
+res://OrbittingSprite.gd
+res://Main Menu.gd
+res://ExitButtonScript.gd
+res://VisibilityButtonScipt.gd
+res://LabelScript.gd

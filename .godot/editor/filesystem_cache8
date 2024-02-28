@@ -1,0 +1,11 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1708892965
+asd.webp::CompressedTexture2D::2421558178606100088::1708888483::1708888530::1::::<><>::
+ExitButtonScript.gd::GDScript::-1::1708884397::0::1::::<>Button<>::
+icon.svg::CompressedTexture2D::4511325934922747556::1708823368::1708882751::1::::<><>::
+Main Menu.gd::GDScript::-1::1708884390::0::1::::<>Control<>::
+Main Menu.tscn::PackedScene::4080611781297702117::1708892746::0::1::::<><>::res://Main Menu.gd<>res://ExitButtonScript.gd<>uid://b5jk45funp4bg::::res://icon.svg<>res://OrbittingSprite.gd<>res://VisibilityButtonScipt.gd<>res://LabelScript.gd
+OrbittingSprite.gd::GDScript::-1::1708892746::0::1::::<>Sprite2D<>::
+LabelScript.gd::GDScript::-1::1708892762::0::1::::<>Label<>::
+PAPI.webp::CompressedTexture2D::7683753929289055288::1708892956::1708892970::1::::<><>::
+VisibilityButtonScipt.gd::GDScript::-1::1708887177::0::1::::<>Button<>::

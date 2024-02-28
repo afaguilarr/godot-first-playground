@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://byexcyksu34ib"]
+
+[ext_resource type="Script" path="res://Main Menu.gd" id="1_c1ylw"]
+[ext_resource type="Script" path="res://ExitButtonScript.gd" id="1_qohgh"]
+[ext_resource type="Texture2D" uid="uid://b5jk45funp4bg" path="res://icon.svg" id="3_sfjji"]
+[ext_resource type="Script" path="res://OrbittingSprite.gd" id="4_mlkc1"]
+[ext_resource type="Script" path="res://VisibilityButtonScipt.gd" id="5_mj2mk"]
+[ext_resource type="Script" path="res://LabelScript.gd" id="6_mbgpd"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c1ylw")
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -494.0
+offset_right = 494.0
+offset_bottom = 145.0
+grow_horizontal = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "CLOSE APP"
+script = ExtResource("1_qohgh")
+
+[node name="ExitButton2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -494.0
+offset_top = -145.0
+offset_right = 494.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "CLOSE APP"
+script = ExtResource("1_qohgh")
+
+[node name="VisibilityButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -494.0
+offset_top = -72.5
+offset_right = 494.0
+offset_bottom = 72.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_left = NodePath("None")
+focus_neighbor_top = NodePath("None")
+focus_neighbor_right = NodePath("None")
+focus_neighbor_bottom = NodePath("None")
+focus_next = NodePath("None")
+focus_previous = NodePath("None")
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "Toggle Visibility"
+script = ExtResource("5_mj2mk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(288, 324)
+texture = ExtResource("3_sfjji")
+script = ExtResource("4_mlkc1")
+
+[node name="Timer" type="Timer" parent="Sprite2D"]
+wait_time = 0.7
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 100.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "5"
+horizontal_alignment = 2
+script = ExtResource("6_mbgpd")
+
+[connection signal="pressed" from="ExitButton" to="ExitButton" method="onButtonPressed"]
+[connection signal="pressed" from="ExitButton2" to="ExitButton2" method="onButtonPressed"]
+[connection signal="button_down" from="VisibilityButton" to="VisibilityButton" method="onArrowPress"]
+[connection signal="button_up" from="VisibilityButton" to="VisibilityButton" method="onArrowPress"]
+[connection signal="pressed" from="VisibilityButton" to="Sprite2D" method="toggleVisibility"]
+[connection signal="attack_received" from="Sprite2D" to="Label" method="decreaseHealth"]
+[connection signal="timeout" from="Sprite2D/Timer" to="Sprite2D" method="toggle_texture"]
+[connection signal="health_depleted" from="Label" to="Sprite2D" method="die"]
